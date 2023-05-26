@@ -35,6 +35,7 @@ class _AddressScreenState extends State<AddressScreen> {
   bool goToPayment = false;
   final _razorpay = Razorpay();
   int totalAmount = 0;
+  List<String> checkoutSteps = ["Address", "Delivery", "Payment"];
 
   late final Future<PaymentConfiguration> _googlePayConfigFuture;
 
@@ -197,7 +198,7 @@ class _AddressScreenState extends State<AddressScreen> {
                                     //       "assets/images/chatbot2.png"),
                                     // ),
                                     ),
-                                child: Text("Address"),
+                                child: Text(checkoutSteps[i]),
                               ),
                             ),
                         ],
