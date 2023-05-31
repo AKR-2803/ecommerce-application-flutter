@@ -1,18 +1,18 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
+
 import 'package:ecommerce_major_project/common/widgets/custom_button.dart';
+import 'package:ecommerce_major_project/constants/global_variables.dart';
 import 'package:ecommerce_major_project/constants/utils.dart';
 import 'package:ecommerce_major_project/features/admin/services/admin_services.dart';
 import 'package:ecommerce_major_project/features/return_product/return_product_screen.dart';
+import 'package:ecommerce_major_project/features/search/screens/search_screen.dart';
 import 'package:ecommerce_major_project/features/search_delegate/my_search_screen.dart';
-import 'package:ecommerce_major_project/providers/user_provider.dart';
-import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
-
 import 'package:ecommerce_major_project/main.dart';
 import 'package:ecommerce_major_project/models/order.dart';
-import 'package:ecommerce_major_project/constants/global_variables.dart';
-import 'package:ecommerce_major_project/features/search/screens/search_screen.dart';
-import 'package:provider/provider.dart';
+import 'package:ecommerce_major_project/providers/user_provider.dart';
 
 class OrderDetailsScreen extends StatefulWidget {
   static const String routeName = "/order-details";
@@ -158,8 +158,9 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                     currentStep: currentStep,
                     steps: <Step>[
                       Step(
-                        title: Text("Pending"),
-                        content: Text("Your order is yet to be delivered"),
+                        title: const Text("Pending"),
+                        content:
+                            const Text("Your order is yet to be delivered"),
                         isActive: currentStep > 0,
                         state: currentStep > 0
                             ? StepState.complete
@@ -167,17 +168,17 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                       ),
                       Step(
                         // title: Text("Shipping"),
-                        title: Text("Completed"),
-                        content: Text("Your are order has been shipped"),
+                        title: const Text("Completed"),
+                        content: const Text("Your are order has been shipped"),
                         isActive: currentStep > 1,
                         state: currentStep > 1
                             ? StepState.complete
                             : StepState.indexed,
                       ),
                       Step(
-                        title: Text("Received"),
-                        content:
-                            Text("Your order has been delievered successfully"),
+                        title: const Text("Received"),
+                        content: const Text(
+                            "Your order has been delievered successfully"),
                         isActive: currentStep > 2,
                         state: currentStep > 2
                             ? StepState.complete
@@ -185,8 +186,8 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                       ),
                       Step(
                         // title: Text("Completed"),
-                        title: Text("Delivered"),
-                        content: Text("Your order is completed."),
+                        title: const Text("Delivered"),
+                        content: const Text("Your order is completed."),
                         isActive: currentStep >= 3,
                         state: currentStep >= 3
                             ? StepState.complete
@@ -202,14 +203,17 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                           ? () {
                               // Navigator.of(context).push(
                               //     GlobalVariables.createRoute(ChatbotScreen()));
-                              showDialog(
-                                context: context,
-                                builder: (_) => SizedBox(
-                                  child: AlertDialog(
-                                    content: ReturnProductScreen(),
-                                  ),
-                                ),
-                              );
+                              // showDialog(
+                              //   context: context,
+                              //   builder: (_) => const SizedBox(
+                              //     child: AlertDialog(
+                              //       content: ReturnProductScreen(),
+                              //     ),
+                              //   ),
+                              // );
+                              showSnackBar(
+                                  context: context,
+                                  text: "Return product yet to be implemented");
                             }
                           : () {
                               // if you still want to complain flow in didilogflow chatbot
@@ -221,8 +225,8 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                       style: ElevatedButton.styleFrom(
                           // alignment: Alignment.center,
                           backgroundColor: allowReturn
-                              ? Color.fromARGB(255, 255, 100, 100)
-                              : Color.fromARGB(255, 255, 168, 168)),
+                              ? const Color.fromARGB(255, 255, 100, 100)
+                              : const Color.fromARGB(255, 255, 168, 168)),
                       child: const Text(
                         "Return Product",
                         style: TextStyle(color: Colors.white),
@@ -236,7 +240,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                 },
                 child: Row(
                   children: [
-                    Text("More Details",
+                    const Text("More Details",
                         style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w400,

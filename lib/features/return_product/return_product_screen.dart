@@ -1,7 +1,5 @@
 import 'dart:io';
 
-import 'package:ecommerce_major_project/constants/global_variables.dart';
-import 'package:ecommerce_major_project/features/search_delegate/my_search_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -9,7 +7,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ecommerce_major_project/main.dart';
 import 'package:ecommerce_major_project/constants/utils.dart';
 import 'package:ecommerce_major_project/common/widgets/custom_textfield.dart';
-import 'package:flutter_launcher_icons/xml_templates.dart';
 
 class ReturnProductScreen extends StatefulWidget {
   const ReturnProductScreen({super.key});
