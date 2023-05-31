@@ -1,16 +1,16 @@
-# ecommerce_major_project
+<p align = "center">
+<img src="https://raw.githubusercontent.com/AKR-2803/ecommerce-application-flutter/2952b76720afcdba3c338260bcbae0dcac76e077/screenshots/GitHubRepo.svg">
+</p>
 
-A new Flutter project.
+## Screenshots
 
-## Getting Started
+| SignUp Screen | SignIn Screen |
+| ------------------ | ------------------ |
+| <img src="./screenshots/new/flutter_02.png" height="400" alt="Screenshot"/>  | <img src="./screenshots/new/flutter_01.png" height="400" alt="Screenshot"/>  |
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+| Home Screen | Categories Screen |
+| ------------------ | ------------------ |
+| <img src="./screenshots/new/flutter_03.png" height="400" alt="Screenshot"/>  | <img src="./screenshots/new/flutter_04.png" height="400" alt="Screenshot"/>  |
