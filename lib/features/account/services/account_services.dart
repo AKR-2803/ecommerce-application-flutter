@@ -1,8 +1,10 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
+import 'package:cloudinary_public/cloudinary_public.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ecommerce_major_project/models/order.dart';
@@ -36,6 +38,60 @@ class AccountServices {
 //
 //
 //
+
+  void addProfilePicture(
+      {required BuildContext context, required File imagePicked}) async {
+    final user = Provider.of<UserProvider>(context, listen: false).user;
+
+    try {
+      final cloudinary = CloudinaryPublic('dyqymg02u', 'ktdtolon');
+
+      String imageUrl = "";
+      CloudinaryResponse cloudinaryResponse = await cloudinary.uploadFile(
+        CloudinaryFile.fromFile(imagePicked.path,
+            folder: "User_Profile_Pictures/${user.email}/${user.name}"),
+      );
+      imageUrl = cloudinaryResponse.secureUrl;
+
+      // Product product = Product(
+      //   name: name,
+      //   description: description,
+      //   brandName: brandName,
+      // quantity: quantity,
+      //   images: imageUrls,
+      //   category: category,
+      //   price: price,
+      // );
+
+      //use jsonEncode before sending the body to POST request
+      // var bodyPostReq = jsonEncode(user.toJson());
+
+      http.Response res = await http.post(
+        Uri.parse('$uri/api/add-profile-picture'),
+        headers: {
+          'Content-Type': 'application/json; charset=UTF-8',
+          'x-auth-token': user.token,
+        },
+        body: jsonEncode({'imageUrl': imageUrl}),
+        // body: product.toJson(),
+      );
+
+      if (context.mounted) {
+        httpErrorHandle(
+          response: res,
+          context: context,
+          onSuccess: () {
+            showSnackBar(
+                context: context,
+                text: 'Profile picture updated successfully!');
+          },
+        );
+      }
+    } catch (e) {
+      showSnackBar(context: context, text: e.toString());
+    }
+  }
+
 //
 //
 //

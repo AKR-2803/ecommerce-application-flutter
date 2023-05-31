@@ -88,13 +88,13 @@ class _OrdersState extends State<Orders> {
         ),
         showLoader
             ? const ColorLoader2()
-            : orders == null
+            : orders!.isEmpty
                 ? Column(
                     children: [
-                      Image.asset(
-                        "assets/images/no-orderss.png",
-                        height: mq.height * .25,
-                      ),
+                      Image.asset("assets/images/no-orderss.png",
+                          height: mq.height * .15),
+
+                      const Text("No Orders found"),
                       SizedBox(height: mq.height * 0.02),
                       ElevatedButton(
                           onPressed: () {
@@ -102,6 +102,8 @@ class _OrdersState extends State<Orders> {
                                 context, BottomBar.routeName);
                           },
                           style: ElevatedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20)),
                               backgroundColor: Colors.deepPurpleAccent),
                           child: const Text(
                             "Keep Exploring",

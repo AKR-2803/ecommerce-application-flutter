@@ -1,14 +1,14 @@
-import 'package:ecommerce_major_project/features/cart/screens/cart_screen.dart';
-import 'package:ecommerce_major_project/features/category_grid/category_grid_screen.dart';
-import 'package:ecommerce_major_project/main.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:badges/badges.dart' as badges;
 
+import 'package:ecommerce_major_project/main.dart';
 import 'package:ecommerce_major_project/providers/user_provider.dart';
 import 'package:ecommerce_major_project/constants/global_variables.dart';
+import 'package:ecommerce_major_project/features/cart/screens/cart_screen.dart';
 import 'package:ecommerce_major_project/features/home/screens/home_screen.dart';
 import 'package:ecommerce_major_project/features/account/screens/account_screen.dart';
+import 'package:ecommerce_major_project/features/category_grid/category_grid_screen.dart';
 
 class BottomBar extends StatefulWidget {
   static const String routeName = "/actual-home";
@@ -40,12 +40,8 @@ class _BottomBarState extends State<BottomBar> {
   Widget build(BuildContext context) {
     mq = MediaQuery.of(context).size;
     myTextTheme = Theme.of(context).textTheme;
-
-    // int userCartLen =
-    //     Provider.of<UserProvider>(context, listen: false).user.cart.length;
     final userCartLen = context.watch<UserProvider>().user.cart.length;
 
-    // print("Cart length in bottom bar is  ===> $userCartLen");
     return Scaffold(
       body: pages[_page],
       bottomNavigationBar: BottomNavigationBar(
@@ -71,7 +67,7 @@ class _BottomBarState extends State<BottomBar> {
                 ),
               ),
               child: _page == 0
-                  ? Icon(Icons.home)
+                  ? const Icon(Icons.home)
                   : const Icon(Icons.home_outlined),
             ),
             label: '',

@@ -15,7 +15,7 @@ class SearchedProduct extends StatelessWidget {
     for (int i = 0; i < product.rating!.length; i++) {
       totalRating += product.rating![i].rating;
       //showing our own rating in the product details page
-      //overall rating will be avgRating but
+      //overall rating will be avgRating butx
       //when we see a particular product we will be able to see
       //our given rating, i.e.  myRating
     }
@@ -31,8 +31,8 @@ class SearchedProduct extends StatelessWidget {
         Card(
           color: Colors.white,
           elevation: 1.5,
-          margin: EdgeInsets.symmetric(
-              horizontal: mq.width * .025, vertical: mq.width * .025),
+          // margin: EdgeInsets.symmetric(
+          //     horizontal: mq.width * .025, vertical: mq.width * .025),
           child: Container(
             color: Colors.white,
             margin: EdgeInsets.symmetric(horizontal: mq.width * .025),
@@ -72,7 +72,7 @@ class SearchedProduct extends StatelessWidget {
                       padding: EdgeInsets.only(
                           left: mq.width * .025, top: mq.width * .0125),
                       child: Text(
-                        "₹ ${product.price}",
+                        "₹ ${product.price.toStringAsFixed(2)}",
                         style: const TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 15),
                         maxLines: 2,

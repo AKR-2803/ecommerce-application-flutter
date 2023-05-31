@@ -35,10 +35,10 @@ class AddressBox extends StatelessWidget {
               child: Text(
                 "Delivery to ${user.name} - ${user.address}",
                 style: TextStyle(
-                  color: GlobalVariables.secondaryGreyTextColor,
-                  fontWeight: FontWeight.w500,
-                  overflow: TextOverflow.ellipsis,
-                ),
+                    color: GlobalVariables.secondaryGreyTextColor,
+                    fontWeight: FontWeight.w500,
+                    overflow: TextOverflow.ellipsis,
+                    fontSize: 12),
               ),
             ),
           ),

@@ -1,18 +1,18 @@
-import 'package:ecommerce_major_project/common/widgets/bottom_bar.dart';
-import 'package:ecommerce_major_project/features/admin/screens/admin_screen.dart';
-import 'package:ecommerce_major_project/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import 'package:ecommerce_major_project/main.dart';
+import 'package:ecommerce_major_project/common/widgets/bottom_bar.dart';
+
 // String uri = 'https://drab-teal-crayfish-hem.cyclic.app';
-String uri = 'http://192.168.26.242:3000';
+String uri = 'http://192.168.9.242:3000';
 
 class GlobalVariables {
   // COLORS
   static const appBarGradient = LinearGradient(
     colors: [
       Color.fromARGB(255, 29, 201, 192),
-      Color.fromARGB(255, 125, 221, 216),
+      Color.fromARGB(255, 125, 221, 216)
     ],
     stops: [0.5, 1.0],
   );
@@ -57,7 +57,6 @@ class GlobalVariables {
     'https://images-na.ssl-images-amazon.com/images/G/31/Symbol/2020/00NEW/1242_450Banners/PL31_copy._CB432483346_.jpg',
     'https://images-na.ssl-images-amazon.com/images/G/31/img21/shoes/September/SSW/pc-header._CB641971330_.jpg',
   ];
-
   static const List<Map<String, String>> categoryImages = [
     {
       'title': 'Mobiles',
@@ -103,14 +102,13 @@ class GlobalVariables {
     },
   ];
 
-  static Route createRoute(dynamic className) {
+  static Route createRoute(Widget className) {
     return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) => className,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         const begin = Offset(0.0, 1.0);
         const end = Offset.zero;
         const curve = Curves.decelerate;
-
         var tween =
             Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
 
@@ -160,8 +158,10 @@ class GlobalVariables {
                         Navigator.of(context)
                             .push(createRoute(onClickSearchNavigateTo));
                       },
-                      child: SvgPicture.asset("assets/images/search-svg.svg",
-                          height: 25),
+                      child: SvgPicture.asset(
+                        "assets/images/search-svg.svg",
+                        height: 25,
+                      ),
                     ),
                     SizedBox(width: mq.width * .04),
                     InkWell(

@@ -10,6 +10,7 @@ class UserProvider extends ChangeNotifier {
     address: '',
     type: '',
     token: '',
+    imageUrl: '',
     cart: [],
     wishList: [],
     searchHistory: [],

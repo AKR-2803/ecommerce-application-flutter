@@ -1,13 +1,12 @@
-import 'package:ecommerce_major_project/features/home/providers/filter_provider.dart';
-import 'package:ecommerce_major_project/main.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
+
+import 'package:ecommerce_major_project/features/home/providers/filter_provider.dart';
 
 enum FilterType { atoZ, priceLtoH, priceHtoL }
 
 class FilterScreen extends StatefulWidget {
-  const FilterScreen({super.key});
+  FilterScreen({super.key});
 
   @override
   State<FilterScreen> createState() => _FilterScreenState();
@@ -33,7 +32,7 @@ class _FilterScreenState extends State<FilterScreen> {
         actions: [
           TextButton(
               onPressed: () => Navigator.of(context).pop(),
-              child: Text("Close"))
+              child: const Text("Close"))
         ],
       ),
 
@@ -42,31 +41,26 @@ class _FilterScreenState extends State<FilterScreen> {
       //       onPressed: () => Navigator.of(context).pop(), child: Text("Close"))
       // ]),
       //  ,
-      body: RadioExample(),
+      body: FiltersAvailable(),
     );
   }
 }
 
-class RadioExample extends StatefulWidget {
-  const RadioExample({super.key});
+class FiltersAvailable extends StatefulWidget {
+  FiltersAvailable({super.key});
 
   @override
-  State<RadioExample> createState() => _RadioExampleState();
+  State<FiltersAvailable> createState() => _FiltersAvailableState();
 }
 
-class _RadioExampleState extends State<RadioExample> {
+class _FiltersAvailableState extends State<FiltersAvailable> {
   FilterType? _character;
-
   @override
   Widget build(BuildContext context) {
     final filterProvider = Provider.of<FilterProvider>(context);
-    // filterProvider.getFilterNumber == 1
-    //     ? _character = FilterType.atoZ
-    //     : filterProvider.getFilterNumber == 2
-    //         ? _character = FilterType.priceLtoH
-    //         : filterProvider.getFilterNumber == 3
-    //             ? FilterType.priceHtoL
-    //             : FilterType.atoZ;
+    // FilterType? _character = widget.filterNumber == null
+    //     ? null
+    //     : getFilterType(widget.filterNumber!);
 
     return Column(
       children: <Widget>[
@@ -74,7 +68,7 @@ class _RadioExampleState extends State<RadioExample> {
           activeColor: Colors.deepPurple.shade700,
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
-              side: BorderSide(color: Colors.black, width: .1)),
+              side: const BorderSide(color: Colors.black, width: .1)),
           title: const Text('a-z'),
           value: FilterType.atoZ,
           groupValue: _character,
@@ -89,7 +83,7 @@ class _RadioExampleState extends State<RadioExample> {
           title: const Text('Price Low to High'),
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
-              side: BorderSide(color: Colors.black, width: .1)),
+              side: const BorderSide(color: Colors.black, width: .1)),
           value: FilterType.priceLtoH,
           groupValue: _character,
           onChanged: (FilterType? value) {
@@ -103,7 +97,7 @@ class _RadioExampleState extends State<RadioExample> {
           title: const Text('Price High to Low'),
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
-              side: BorderSide(color: Colors.black, width: .1)),
+              side: const BorderSide(color: Colors.black, width: .1)),
           value: FilterType.priceHtoL,
           groupValue: _character,
           onChanged: (FilterType? value) {
@@ -133,4 +127,17 @@ class _RadioExampleState extends State<RadioExample> {
       ],
     );
   }
+
+  // FilterType? getFilterType(int filterNumber) {
+  //   switch (filterNumber) {
+  //     case 0:
+  //       return FilterType.atoZ;
+  //     case 1:
+  //       return FilterType.priceLtoH;
+  //     case 2:
+  //       return FilterType.priceLtoH;
+  //     default:
+  //       return null;
+  //   }
+  // }
 }

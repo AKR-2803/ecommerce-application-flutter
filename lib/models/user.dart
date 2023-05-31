@@ -10,6 +10,7 @@ class User {
   final String address;
   final String type;
   final String token;
+  final String? imageUrl;
   final List<dynamic> cart;
   final List<dynamic>? wishList;
   final List<String>? searchHistory;
@@ -23,6 +24,7 @@ class User {
     required this.address,
     required this.type,
     required this.token,
+    required this.imageUrl,
     required this.cart,
     this.wishList,
     this.searchHistory,
@@ -38,6 +40,7 @@ class User {
       'address': address,
       'type': type,
       'token': token,
+      'imageUrl': imageUrl,
       'cart': cart,
       'wishList': wishList,
       'searchHistory': searchHistory,
@@ -55,6 +58,7 @@ class User {
       address: map['address'] ?? '',
       type: map['type'] ?? '',
       token: map['token'] ?? '',
+      imageUrl: map['imageUrl'] ?? '',
       cart: List<Map<String, dynamic>>.from(
         map['cart']?.map(
               (x) => Map<String, dynamic>.from(x),
@@ -98,6 +102,7 @@ class User {
     String? address,
     String? type,
     String? token,
+    String? imageUrl,
     List<dynamic>? cart,
     List<dynamic>? wishList,
     List<String>? searchHistory,
@@ -111,6 +116,7 @@ class User {
       address: address ?? this.address,
       type: type ?? this.type,
       token: token ?? this.token,
+      imageUrl: imageUrl ?? this.imageUrl,
       cart: cart ?? this.cart,
       wishList: wishList ?? this.wishList,
       searchHistory: searchHistory ?? this.searchHistory,

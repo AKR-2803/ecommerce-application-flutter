@@ -95,6 +95,41 @@ class ProductDetailServices {
   //
   //
 
+  // Future<List<User>?> getUserImage(
+  //     {required BuildContext context, required Product product}) async {
+  //   final userProvider = Provider.of<UserProvider>(context, listen: false);
+  //   List<User>? userList = [];
+
+  //   try {
+  //     http.Response res = await http.get(
+  //       Uri.parse("$uri/api/get-user-of-product"),
+  //       headers: {
+  //         'Content-Type': 'application/json; charset=UTF-8',
+  //         'x-auth-token': userProvider.user.token,
+  //       },
+  //     );
+
+  //     var data = jsonDecode(res.body);
+  //     print("\nData coming -------------------------- $data");
+
+  //     //use context ensuring the mounted property across async functions
+  //     if (context.mounted) {
+  //       httpErrorHandle(
+  //         response: res,
+  //         context: context,
+  //         onSuccess: () {
+  //           // for (Map<String, dynamic> item in data) {
+  //           //   userList.add(User.fromJson(jsonEncode((item))));
+  //           // }
+  //         },
+  //       );
+  //     }
+  //   } catch (e) {
+  //     showSnackBar(context: context, text: e.toString());
+  //   }
+  //   return userList;
+  // }
+
   void rateProduct({
     required BuildContext context,
     required Product product,

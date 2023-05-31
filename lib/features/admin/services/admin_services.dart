@@ -1,16 +1,18 @@
-import 'dart:io';
 import 'dart:convert';
-import 'package:ecommerce_major_project/features/admin/models/sales.dart';
-import 'package:ecommerce_major_project/models/order.dart';
+import 'dart:io';
+
+import 'package:cloudinary_public/cloudinary_public.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
-import 'package:cloudinary_public/cloudinary_public.dart';
-import '/providers/user_provider.dart';
-import '/constants/global_variables.dart';
-import '/constants/error_handling.dart';
-import '/constants/utils.dart';
-import '/models/product.dart';
+
+import 'package:ecommerce_major_project/constants/error_handling.dart';
+import 'package:ecommerce_major_project/constants/global_variables.dart';
+import 'package:ecommerce_major_project/constants/utils.dart';
+import 'package:ecommerce_major_project/features/admin/models/sales.dart';
+import 'package:ecommerce_major_project/models/order.dart';
+import 'package:ecommerce_major_project/models/product.dart';
+import 'package:ecommerce_major_project/providers/user_provider.dart';
 
 class AdminServices {
   void sellProduct({

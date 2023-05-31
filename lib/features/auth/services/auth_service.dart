@@ -31,10 +31,11 @@ class AuthService {
         address: '',
         type: '',
         token: '',
+        imageUrl: '',
+        //https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnWaCAfSN08VMtSjYBj0QKSfHk4-fjJZCOxgHLPuBSAw&s
         cart: [],
       );
 
-      print("<  -------------Before http request---------------  > ");
       //USING uri as it works for both Android and iOS
       http.Response res = await http.post(
         Uri.parse('$uri/api/signup'),
@@ -43,11 +44,7 @@ class AuthService {
           'Content-Type': 'application/json; charset=UTF-8',
         },
       );
-      print(
-          "<============= after sign up http request ${res.body} ===============>");
 
-      print(
-          "Response from signup  =====> ${res.body}, status code =====> ${res.statusCode}");
       if (context.mounted) {
         httpErrorHandle(
             response: res,
@@ -80,11 +77,6 @@ class AuthService {
           'Content-Type': 'application/json; charset=UTF-8',
         },
       );
-      print(
-          "<============= after sign in http request ${res.body} ===============>");
-
-      print(
-          "Response from signIn  =====> ${res.body}, status code =====> ${res.statusCode}");
 
       //dont use context across asynchronous gaps
       if (context.mounted) {

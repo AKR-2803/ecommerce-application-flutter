@@ -84,3 +84,22 @@ Future<List<File>> pickImages() async {
 
   return images;
 }
+
+Future<File> pickImage() async {
+  File image = File("");
+
+  try {
+    FilePickerResult? file =
+        await FilePicker.platform.pickFiles(type: FileType.image);
+
+    image = File(file!.files[0].path!);
+
+    if (file.files.isNotEmpty) {
+      image = File(file.files[0].path!);
+    }
+  } catch (e) {
+    debugPrint("Error in picking image : ${e.toString()}");
+  }
+
+  return image;
+}

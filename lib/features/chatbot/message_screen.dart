@@ -1,7 +1,10 @@
 import 'package:ecommerce_major_project/constants/global_variables.dart';
 import 'package:ecommerce_major_project/main.dart';
+import 'package:ecommerce_major_project/models/user.dart';
+import 'package:ecommerce_major_project/providers/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_launcher_icons/xml_templates.dart';
+import 'package:provider/provider.dart';
 
 class MessageScreen extends StatefulWidget {
   final List messages;
@@ -14,6 +17,7 @@ class MessageScreen extends StatefulWidget {
 class _MessageScreenState extends State<MessageScreen> {
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<UserProvider>(context).user;
     print("\n\n ===============> Messages are : ${widget.messages}");
     return widget.messages.isEmpty
         ? Center(
@@ -21,36 +25,34 @@ class _MessageScreenState extends State<MessageScreen> {
             height: mq.height * 0.28,
             width: mq.width * 0.6,
             child: Card(
-              elevation: 1,
+              elevation: 5,
               color: Colors.grey.shade100,
               shape: RoundedRectangleBorder(
                   side: const BorderSide(width: 0.01, color: Colors.black),
                   borderRadius: BorderRadius.circular(20)),
-              child: Padding(
-                padding: EdgeInsets.all(mq.height * 0.01),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text(
-                      "Hi I'm your eSHOP buddy",
-                      style: TextStyle(fontSize: 15),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    "Hi I'm your eSHOP buddy",
+                    style: TextStyle(fontSize: 15),
+                  ),
+                  // SizedBox(height: mq.height * 0.03),
+                  MaterialButton(
+                    onPressed: () {},
+                    child: Image.asset(
+                      "assets/images/chatbot-final.png",
+                      // color: Colors.redAccent,
+                      height: mq.height * .15,
                     ),
-                    SizedBox(height: mq.height * 0.03),
-                    MaterialButton(
-                      onPressed: () {},
-                      child: Image.asset(
-                        "assets/images/chatbot2.png",
-                        height: mq.height * .1,
-                      ),
-                    ),
-                    SizedBox(height: mq.height * 0.03),
-                    const Text("How can I help you?",
-                        style: TextStyle(fontWeight: FontWeight.w400),
-                        textAlign: TextAlign.center),
-                    SizedBox(height: mq.height * 0.02),
-                    //on tapping this button send an initial message
-                  ],
-                ),
+                  ),
+                  // SizedBox(height: mq.height * 0.03),
+                  const Text("How can I help you?",
+                      style: TextStyle(fontWeight: FontWeight.w400),
+                      textAlign: TextAlign.center),
+                  // SizedBox(height: mq.height * 0.02),
+                  //on tapping this button send an initial message
+                ],
               ),
             ),
           ))
@@ -60,7 +62,7 @@ class _MessageScreenState extends State<MessageScreen> {
             itemCount: widget.messages.length,
             itemBuilder: (context, index) {
               return widget.messages[index]['isUserMessage']
-                  ? userMessage(index)
+                  ? userMessage(index, user)
                   : botMessage(index);
             },
             separatorBuilder: (_, __) =>
@@ -68,7 +70,7 @@ class _MessageScreenState extends State<MessageScreen> {
           );
   }
 
-  Widget userMessage(int index) {
+  Widget userMessage(int index, User user) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       mainAxisSize: MainAxisSize.min,
@@ -96,11 +98,10 @@ class _MessageScreenState extends State<MessageScreen> {
                     fontWeight: FontWeight.w500)),
           ),
         ),
-        const Padding(
+        Padding(
             padding: EdgeInsets.only(right: 8.0),
             child: CircleAvatar(
-                backgroundImage: AssetImage("assets/images/gallery.png"),
-                radius: 15)),
+                backgroundImage: NetworkImage(user.imageUrl!), radius: 15)),
       ],
     );
   }
@@ -113,7 +114,8 @@ class _MessageScreenState extends State<MessageScreen> {
         const Padding(
           padding: EdgeInsets.only(left: 8.0),
           child: CircleAvatar(
-              backgroundImage: AssetImage("assets/images/chatbot2.png"),
+              backgroundColor: Colors.cyan,
+              backgroundImage: AssetImage("assets/images/chatbot-final.png"),
               radius: 15),
         ),
         Card(

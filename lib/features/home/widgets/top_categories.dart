@@ -1,38 +1,19 @@
 import 'dart:math';
 
-import 'package:ecommerce_major_project/features/cart/screens/cart_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:like_button/like_button.dart';
 
-import 'package:ecommerce_major_project/common/widgets/color_loader_2.dart';
-import 'package:ecommerce_major_project/common/widgets/loader.dart';
+import 'package:ecommerce_major_project/main.dart';
+import 'package:ecommerce_major_project/models/product.dart';
 import 'package:ecommerce_major_project/constants/utils.dart';
-import 'package:ecommerce_major_project/features/home/screens/wish_list_screen.dart';
+import 'package:ecommerce_major_project/constants/global_variables.dart';
+import 'package:ecommerce_major_project/common/widgets/color_loader_2.dart';
 import 'package:ecommerce_major_project/features/home/services/home_services.dart';
+import 'package:ecommerce_major_project/features/home/screens/wish_list_screen.dart';
+import 'package:ecommerce_major_project/features/home/screens/category_deals_screen.dart';
 import 'package:ecommerce_major_project/features/product_details/screens/product_detail_screen.dart';
 import 'package:ecommerce_major_project/features/product_details/services/product_detail_services.dart';
-import 'package:ecommerce_major_project/models/product.dart';
-
-import '/constants/global_variables.dart';
-import '/features/home/screens/category_deals_screen.dart';
-import '/main.dart';
-
-// Route _createRoute(dynamic className) {
-//   return PageRouteBuilder(
-//     pageBuilder: (context, animation, secondaryAnimation) => className,
-//     transitionsBuilder: (context, animation, secondaryAnimation, child) {
-//       const begin = Offset(0.0, 1.0);
-//       const end = Offset.zero;
-//       const curve = Curves.decelerate;
-
-//       var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-
-//       return SlideTransition(position: animation.drive(tween), child: child);
-//     },
-//   );
-// }
 
 class TopCategories extends StatefulWidget {
   const TopCategories({super.key});
@@ -55,6 +36,8 @@ class _TopCategoriesState extends State<TopCategories>
   final HomeServices homeServices = HomeServices();
   final ProductDetailServices productDetailServices = ProductDetailServices();
   //add to cart function copied, link it to the gridview items buttons
+
+  bool favSelected = false;
 
   List<String> categoriesList = [
     "Mobiles",
@@ -445,11 +428,7 @@ class _TopCategoriesState extends State<TopCategories>
                                                                         ? () {
                                                                             showSnackBar(
                                                                                 context: context,
-                                                                                text: "Product out of stock",
-                                                                                actionLabel: "View",
-                                                                                onTapFunction: () {
-                                                                                  Navigator.of(context).push(GlobalVariables.createRoute(CartScreen()));
-                                                                                });
+                                                                                text: "Product out of stock");
                                                                           }
                                                                         : () {
                                                                             addToCart(product.name,
@@ -501,21 +480,28 @@ class _TopCategoriesState extends State<TopCategories>
                                               // ),
 
                                               InkWell(
-                                                onTap: () {},
+                                                onTap: () {
+                                                  setState(() {
+                                                    // set to fav icon index
+                                                    // favSelected = index;
+                                                  });
+                                                },
                                                 child: Container(
                                                   margin: const EdgeInsets.only(
                                                       top: 10, right: 10),
-                                                  padding: EdgeInsets.all(3),
+                                                  padding:
+                                                      const EdgeInsets.all(3),
                                                   // height: 30,
                                                   decoration:
                                                       const BoxDecoration(
-                                                          color: Colors.grey,
+                                                          color: Colors.black,
                                                           shape:
                                                               BoxShape.circle),
-                                                  child: const Icon(
-                                                      Icons.favorite,
-                                                      color: Colors.white,
-                                                      size: 16),
+                                                  child: Icon(Icons.favorite,
+                                                      color: favSelected
+                                                          ? Colors.red
+                                                          : Colors.white,
+                                                      size: 17),
                                                 ),
                                               ),
                                             ],

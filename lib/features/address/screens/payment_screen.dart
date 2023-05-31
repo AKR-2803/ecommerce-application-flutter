@@ -31,7 +31,10 @@ class _PaymentScreenState extends State<PaymentScreen> {
           'amount': 100,
           'name': 'AKR Company',
           'description': 'Ecommerce Bill',
-          'prefill': {'contact': '8888888888', 'email': 'test@razorpay.com'}
+          'prefill': {
+            'contact': '8888888888',
+            'email': 'test@razorpay.com',
+          }
         };
 
         try {
@@ -60,7 +63,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     // normal
-                    Text(
+                    const Text(
                       "Your order has been placed",
                       style: TextStyle(
                           fontWeight: FontWeight.w800,

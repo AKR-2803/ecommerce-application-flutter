@@ -1,32 +1,16 @@
-import 'package:ecommerce_major_project/common/widgets/color_loader_2.dart';
-import 'package:ecommerce_major_project/features/home/screens/filters_screen.dart';
-import 'package:ecommerce_major_project/features/home/widgets/address_box.dart';
-import 'package:ecommerce_major_project/features/search/widgets/searched_product.dart';
-import 'package:ecommerce_major_project/features/search_delegate/my_search_screen.dart';
-import 'package:ecommerce_major_project/main.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../product_details/screens/product_detail_screen.dart';
-import '../providers/filter_provider.dart';
-import '/features/home/services/home_services.dart';
-import '/models/product.dart';
-import '/common/widgets/loader.dart';
-import '/constants/global_variables.dart';
 
-// Route _createRoute() {
-//   return PageRouteBuilder(
-//     pageBuilder: (context, animation, secondaryAnimation) => FilterScreen(),
-//     transitionsBuilder: (context, animation, secondaryAnimation, child) {
-//       const begin = Offset(0.0, 1.0);
-//       const end = Offset.zero;
-//       const curve = Curves.decelerate;
-
-//       var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-
-//       return SlideTransition(position: animation.drive(tween), child: child);
-//     },
-//   );
-// }
+import 'package:ecommerce_major_project/main.dart';
+import 'package:ecommerce_major_project/models/product.dart';
+import 'package:ecommerce_major_project/constants/global_variables.dart';
+import 'package:ecommerce_major_project/common/widgets/color_loader_2.dart';
+import 'package:ecommerce_major_project/features/home/services/home_services.dart';
+import 'package:ecommerce_major_project/features/home/screens/filters_screen.dart';
+import 'package:ecommerce_major_project/features/home/providers/filter_provider.dart';
+import 'package:ecommerce_major_project/features/search/widgets/searched_product.dart';
+import 'package:ecommerce_major_project/features/search_delegate/my_search_screen.dart';
+import 'package:ecommerce_major_project/features/product_details/screens/product_detail_screen.dart';
 
 class CategoryDealsScreen extends StatefulWidget {
   static const String routeName = '/category-deals';
@@ -95,33 +79,33 @@ class _CategoryDealsScreenState extends State<CategoryDealsScreen> {
               children: [
                 // SizedBox(height: mq.height * .01),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.end,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Row(
-                      children: [
-                        Image.asset(height: 30, "assets/images/elite.jpg"),
-                        // Text("elite"),
-                        SizedBox(
-                          height: 40,
-                          width: 50,
-                          child: FittedBox(
-                            fit: BoxFit.fill,
-                            child: Switch(
-                              activeColor: Colors.blue,
-                              thumbColor: thumbColor,
-                              thumbIcon: thumbIcon,
-                              value: light1,
-                              onChanged: (bool value) {
-                                setState(() {
-                                  light1 = value;
-                                });
-                              },
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                    // Row(
+                    //   children: [
+                    //     Image.asset(height: 30, "assets/images/elite.jpg"),
+                    //     // Text("elite"),
+                    //     SizedBox(
+                    //       height: 40,
+                    //       width: 50,
+                    //       child: FittedBox(
+                    //         fit: BoxFit.fill,
+                    //         child: Switch(
+                    //           activeColor: Colors.blue,
+                    //           thumbColor: thumbColor,
+                    //           thumbIcon: thumbIcon,
+                    //           value: light1,
+                    //           onChanged: (bool value) {
+                    //             setState(() {
+                    //               light1 = value;
+                    //             });
+                    //           },
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ],
+                    // ),
                     InkWell(
                       onTap: () {
                         Navigator.of(context)
@@ -129,7 +113,7 @@ class _CategoryDealsScreenState extends State<CategoryDealsScreen> {
                       },
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
+                        children: const [
                           // Divider(
                           //     height: 10, thickness: 20, color: Colors.grey),
                           Text("Filters(1)"),
@@ -169,8 +153,8 @@ class _CategoryDealsScreenState extends State<CategoryDealsScreen> {
                                     //   ..sort((e1, e2) => e1.key.compareTo(e2.key)));
                                     return Column(
                                       children: [
-                                        Text(
-                                            "Filter  : ${filterProvider.getFilterNumber}"),
+                                        // Text(
+                                        //     "Filter  : ${filterProvider.getFilterNumber}"),
                                         GestureDetector(
                                             onTap: () {
                                               Navigator.pushNamed(context,

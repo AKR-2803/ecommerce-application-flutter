@@ -1,5 +1,6 @@
-import 'package:ecommerce_major_project/models/user.dart';
 import 'package:flutter/material.dart';
+
+import 'package:ecommerce_major_project/models/user.dart';
 
 class MyEndDrawer extends StatefulWidget {
   User user;

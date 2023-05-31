@@ -1,13 +1,9 @@
-import 'package:ecommerce_major_project/common/widgets/bottom_bar.dart';
-import 'package:ecommerce_major_project/constants/utils.dart';
-import 'package:ecommerce_major_project/features/home/screens/home_screen.dart';
-import 'package:ecommerce_major_project/features/search_delegate/my_search_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 
 import 'package:ecommerce_major_project/main.dart';
 import 'package:ecommerce_major_project/providers/user_provider.dart';
+import 'package:ecommerce_major_project/common/widgets/bottom_bar.dart';
 import 'package:ecommerce_major_project/constants/global_variables.dart';
 import 'package:ecommerce_major_project/common/widgets/custom_button.dart';
 import 'package:ecommerce_major_project/features/home/widgets/address_box.dart';
@@ -15,6 +11,7 @@ import 'package:ecommerce_major_project/features/cart/widgets/cart_product.dart'
 import 'package:ecommerce_major_project/features/cart/widgets/cart_subtotal.dart';
 import 'package:ecommerce_major_project/features/search/screens/search_screen.dart';
 import 'package:ecommerce_major_project/features/address/screens/address_screen.dart';
+import 'package:ecommerce_major_project/features/search_delegate/my_search_screen.dart';
 
 class CartScreen extends StatefulWidget {
   static const String routeName = '/cart';
@@ -54,6 +51,7 @@ class _CartScreenState extends State<CartScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            SizedBox(height: mq.height * 0.01),
             const AddressBox(),
             const CartSubtotal(),
             Padding(
@@ -65,7 +63,7 @@ class _CartScreenState extends State<CartScreen> {
                       user.cart.isEmpty ? () {} : navigateToAddress(sum),
                   color: user.cart.isEmpty
                       ? Colors.yellow[200]
-                      : Colors.yellow[600]),
+                      : Colors.yellow[500]),
             ),
             SizedBox(height: mq.height * 0.02),
             Container(color: Colors.black12.withOpacity(0.08), height: 1),
@@ -74,26 +72,24 @@ class _CartScreenState extends State<CartScreen> {
               height: mq.height * 0.55,
               child: user.cart.isEmpty
                   ? Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Image.asset("assets/images/no-orderss.png",
-                            height: mq.height * .25),
-                        const Text(
-                          "Oops, no item in cart",
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.w300),
-                        ),
-                        SizedBox(height: mq.height * .01),
+                            height: mq.height * .15),
+                        const Text("No item in cart"),
+                        SizedBox(height: mq.height * 0.02),
                         ElevatedButton(
-                          onPressed: () {
-                            Navigator.pushReplacementNamed(
-                                context, BottomBar.routeName);
-                          },
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.deepPurpleAccent),
-                          child: const Text("Keep Exploring",
-                              style: TextStyle(color: Colors.white)),
-                        )
+                            onPressed: () {
+                              Navigator.pushReplacementNamed(
+                                  context, BottomBar.routeName);
+                            },
+                            style: ElevatedButton.styleFrom(
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20)),
+                                backgroundColor: Colors.deepPurpleAccent),
+                            child: const Text(
+                              "Keep Exploring",
+                              style: TextStyle(color: Colors.white),
+                            )),
                       ],
                     )
                   : ListView.builder(

@@ -1,12 +1,12 @@
-import 'package:ecommerce_major_project/constants/global_variables.dart';
-import 'package:ecommerce_major_project/features/chatbot/chatbot_screen.dart';
-import 'package:ecommerce_major_project/features/search_delegate/my_search_screen.dart';
 import 'package:flutter/material.dart';
 
-import 'package:ecommerce_major_project/main.dart';
+import 'package:ecommerce_major_project/constants/global_variables.dart';
+import 'package:ecommerce_major_project/features/account/widgets/below_app_bar.dart';
 import 'package:ecommerce_major_project/features/account/widgets/orders.dart';
 import 'package:ecommerce_major_project/features/account/widgets/top_buttons.dart';
-import 'package:ecommerce_major_project/features/account/widgets/below_app_bar.dart';
+import 'package:ecommerce_major_project/features/chatbot/chatbot_screen.dart';
+import 'package:ecommerce_major_project/features/search_delegate/my_search_screen.dart';
+import 'package:ecommerce_major_project/main.dart';
 
 class AccountScreen extends StatelessWidget {
   const AccountScreen({super.key});
@@ -38,10 +38,7 @@ class AccountScreen extends StatelessWidget {
         },
         backgroundColor: Colors.deepPurple.shade600,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
-        label: Text(
-          "Ask buddy",
-          style: TextStyle(fontSize: 12),
-        ),
+        label: Text("Ask buddy", style: TextStyle(fontSize: 12)),
       ),
     );
   }

@@ -1,8 +1,8 @@
-import 'package:ecommerce_major_project/common/widgets/color_loader_2.dart';
 import 'package:flutter/material.dart';
 
 import 'package:ecommerce_major_project/main.dart';
 import 'package:ecommerce_major_project/models/product.dart';
+import 'package:ecommerce_major_project/common/widgets/color_loader_2.dart';
 import 'package:ecommerce_major_project/features/home/services/home_services.dart';
 import 'package:ecommerce_major_project/features/product_details/screens/product_detail_screen.dart';
 
@@ -72,49 +72,49 @@ class _DealOfDayState extends State<DealOfDay> {
                             height: mq.height * 0.075),
                       ],
                     ),
-                    Container(
-                      alignment: Alignment.topLeft,
-                      padding:
-                          const EdgeInsets.only(left: 15, right: 40, top: 5),
-                      child: const Text("\$100",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 18)),
-                    ),
-                    Container(
-                      alignment: Alignment.topLeft,
-                      padding:
-                          const EdgeInsets.only(left: 15, right: 40, top: 5),
-                      child: const Text(
-                        "Product #1",
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: product!.images
-                            .map(
-                              (e) => Image.network(
-                                e,
-                                height: 100,
-                                width: 100,
-                                fit: BoxFit.fitWidth,
-                              ),
-                            )
-                            .toList(),
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.symmetric(vertical: 15)
-                          .copyWith(left: 15),
-                      alignment: Alignment.topLeft,
-                      child: Text(
-                        "See all deals",
-                        style: TextStyle(color: Colors.cyan.shade800),
-                      ),
-                    )
+                    // Container(
+                    //   alignment: Alignment.topLeft,
+                    //   padding:
+                    //       const EdgeInsets.only(left: 15, right: 40, top: 5),
+                    //   child: Text("₹${product!.price.toStringAsFixed(2)}",
+                    //       style: TextStyle(
+                    //           fontWeight: FontWeight.bold, fontSize: 18)),
+                    // ),
+                    // Container(
+                    //   alignment: Alignment.topLeft,
+                    //   padding:
+                    //       const EdgeInsets.only(left: 15, right: 40, top: 5),
+                    //   child: const Text(
+                    //     "Product #1",
+                    //     maxLines: 2,
+                    //     overflow: TextOverflow.ellipsis,
+                    //   ),
+                    // ),
+                    // SingleChildScrollView(
+                    //   scrollDirection: Axis.horizontal,
+                    //   child: Row(
+                    //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    //     children: product!.images
+                    //         .map(
+                    //           (e) => Image.network(
+                    //             e,
+                    //             height: 100,
+                    //             width: 100,
+                    //             fit: BoxFit.fitWidth,
+                    //           ),
+                    //         )
+                    //         .toList(),
+                    //   ),
+                    // ),
+                    // Container(
+                    //   padding: const EdgeInsets.symmetric(vertical: 15)
+                    //       .copyWith(left: 15),
+                    //   alignment: Alignment.topLeft,
+                    //   child: Text(
+                    //     "See all deals",
+                    //     style: TextStyle(color: Colors.cyan.shade800),
+                    //   ),
+                    // )
                   ],
                 ),
               );

@@ -1,4 +1,4 @@
-import 'package:ecommerce_major_project/features/cart/screens/cart_screen.dart';
+import 'package:ecommerce_major_project/constants/global_variables.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -6,6 +6,7 @@ import 'package:ecommerce_major_project/main.dart';
 import 'package:ecommerce_major_project/models/product.dart';
 import 'package:ecommerce_major_project/constants/utils.dart';
 import 'package:ecommerce_major_project/providers/user_provider.dart';
+import 'package:ecommerce_major_project/features/cart/screens/cart_screen.dart';
 import 'package:ecommerce_major_project/features/product_details/services/product_detail_services.dart';
 
 class WishListProduct extends StatefulWidget {
@@ -62,7 +63,7 @@ class _WishListProductState extends State<WishListProduct> {
                     padding: EdgeInsets.only(
                         left: mq.width * .025, top: mq.width * .0125),
                     child: Text(
-                      "₹ ${product.price}",
+                      "₹ ${product.price.toStringAsFixed(2)}",
                       style: const TextStyle(
                           fontWeight: FontWeight.bold, fontSize: 18),
                       maxLines: 2,
@@ -70,15 +71,21 @@ class _WishListProductState extends State<WishListProduct> {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      productDetailServices.addToCart(
-                          context: context, product: product);
-                      showSnackBar(
-                          context: context,
-                          text: "Added to cart",
-                          actionLabel: "View Cart",
-                          onTapFunction: () {
-                            Navigator.pushNamed(context, CartScreen.routeName);
-                          });
+                      if (product.quantity == 0) {
+                        showSnackBar(
+                            context: context, text: "Product out of stock");
+                      } else {
+                        productDetailServices.addToCart(
+                            context: context, product: product);
+                        showSnackBar(
+                            context: context,
+                            text: "Added to cart",
+                            actionLabel: "View Cart",
+                            onTapFunction: () {
+                              Navigator.pushNamed(
+                                  context, CartScreen.routeName);
+                            });
+                      }
                     },
                     style: ElevatedButton.styleFrom(
                       elevation: 1,
