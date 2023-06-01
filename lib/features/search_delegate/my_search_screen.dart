@@ -2,7 +2,6 @@ import 'package:ecommerce_major_project/features/home/providers/search_provider.
 import 'package:ecommerce_major_project/features/home/services/home_services.dart';
 import 'package:ecommerce_major_project/main.dart';
 import 'package:ecommerce_major_project/providers/user_provider.dart';
-import 'package:ecommerce_major_project/speech_example.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce_major_project/features/search/screens/search_screen.dart';
 import 'package:provider/provider.dart';
