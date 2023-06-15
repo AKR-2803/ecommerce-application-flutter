@@ -32,11 +32,6 @@ class _ReturnProductScreenState extends State<ReturnProductScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        // appBar: GlobalVariables.getAppBar(
-        //     title: "Return Product",
-        //     context: context,
-        //     wantActions: false,
-        //     onClickSearchNavigateTo: MySearchScreen()),
         body: SingleChildScrollView(
       child: Form(
         key: _returnProuctFormKey,

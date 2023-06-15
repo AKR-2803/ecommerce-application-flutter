@@ -201,16 +201,6 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                   : ElevatedButton(
                       onPressed: allowReturn
                           ? () {
-                              // Navigator.of(context).push(
-                              //     GlobalVariables.createRoute(ChatbotScreen()));
-                              // showDialog(
-                              //   context: context,
-                              //   builder: (_) => const SizedBox(
-                              //     child: AlertDialog(
-                              //       content: ReturnProductScreen(),
-                              //     ),
-                              //   ),
-                              // );
                               showSnackBar(
                                   context: context,
                                   text: "Return product yet to be implemented");

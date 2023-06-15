@@ -299,136 +299,13 @@ class _AuthScreenState extends State<AuthScreen> {
             ),
           );
 
-    /*
-    GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
-      child: Scaffold(
-        // resizeToAvoidBottomInset: false,
-
-        // backgroundColor: GlobalVariables.greyBackgroundColor,
-        body: SafeArea(
-          child: Container(
-            height: mq.height,
-            width: mq.width,
-            decoration: const BoxDecoration(
-                gradient: GlobalVariables.loginPageGradient),
-            child: Padding(
-              padding: EdgeInsets.all(mq.width * .1),
-              child: SingleChildScrollView(
-                // reverse: true,
-                physics: const ClampingScrollPhysics(),
-                scrollDirection: Axis.vertical,
-                child: Form(
-                  key: _signUpFormKey,
-                  child: Column(
-                    // crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(20),
-                        child: Image.network(
-                          "https://images.unsplash.com/photo-1657812159103-1b2a52a7f5e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1167&q=80",
-                          height: mq.height * .16,
-                        ),
-                      ),
-                      SizedBox(height: mq.height * .03),
-                      const Text("Create a new account",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w500, fontSize: 25)),
-                      SizedBox(height: mq.height * .03),
-                      CustomTextField(
-                          controller: _nameController, hintText: "Name"),
-                      SizedBox(height: mq.height * .01),
-                      CustomTextField(
-                          controller: _emailController, hintText: "Email"),
-                      SizedBox(height: mq.height * .01),
-                      CustomTextField(
-                          controller: _passwordController,
-                          hintText: "Password"),
-                      SizedBox(height: mq.height * .01),
-                      CustomTextField(
-                          controller: _confirmPasswordController,
-                          hintText: "Confirm Password"),
-                      SizedBox(height: mq.height * .04),
-                      ElevatedButton(
-                        onPressed: () {
-                          //ensuring form validation and matching passwords
-                          // if (_signUpFormKey.currentState!.validate() &&
-                          //     _passwordController.text ==
-                          //         _confirmPasswordController.text) {
-                          //   signUpUser();
-                          //   Navigator.pushReplacementNamed(
-                          //       context, AuthScreen.routeName);
-                          // }
-                          // if (_signUpFormKey.currentState!.validate() &&
-                          //     _passwordController.text !=
-                          //         _confirmPasswordController.text) {
-                          //   showSnackBar(
-                          //       context: context,
-                          //       text: "Passwords do not match");
-                          // }
-                        },
-                        style: ElevatedButton.styleFrom(
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12)),
-                            minimumSize: Size(mq.width, mq.height * 0.08),
-                            backgroundColor: Colors.orange.shade700),
-                        child: const Text(
-                          "Sign Up",
-                        ),
-                      ),
-                      SizedBox(height: mq.height * .015),
-                      // Divider(thickness: 3, color: Colors.grey.shade300),
-                      SizedBox(height: mq.height * .015),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        // crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          const Text("Already have an account?",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w900, fontSize: 15)),
-                          SizedBox(width: mq.width * .012),
-                          InkWell(
-                            onTap: () {},
-                            child: Text(
-                              "Sign in",
-                              style: TextStyle(
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w900,
-                                  color: Colors.orange.shade800,
-                                  decoration: TextDecoration.underline,
-                                  decorationStyle: TextDecorationStyle.solid),
-                            ),
-                          )
-                        ],
-                      ),
-                      Padding(
-                          // this is new
-                          padding: EdgeInsets.only(
-                              bottom:
-                                  MediaQuery.of(context).viewInsets.bottom)),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ),
-        //
-      ),
-    );
-
-    */
   }
 }
 
+
 //
 //
-//
-//
-//
-//
-//
-//
+
 Widget signInScreen({
   required BuildContext context,
   required GlobalKey<FormState> signInFormKey,
