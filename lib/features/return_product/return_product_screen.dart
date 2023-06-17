@@ -110,44 +110,6 @@ class _ReturnProductScreenState extends State<ReturnProductScreen> {
                     "Return Product",
                     style: TextStyle(color: Colors.white),
                   )),
-              // SizedBox(height: mq.height * .01),
-              // CustomTextField(
-              //     controller: brandNameController, hintText: "Brand name"),
-              // SizedBox(height: mq.height * .01),
-              // CustomTextField(
-              //     controller: priceController, hintText: "Price"),
-              // SizedBox(height: mq.height * .01),
-              // CustomTextField(
-              //     controller: quantityController, hintText: "Quantity"),
-              // SizedBox(
-              //   width: double.infinity,
-              //   child: Padding(
-              //     padding: EdgeInsets.symmetric(horizontal: mq.width * .14)
-              //         .copyWith(bottom: 0),
-              //     child: DropdownButton(
-              //       focusColor: Colors.pinkAccent,
-              //       alignment: Alignment.centerLeft,
-              //       dropdownColor: Color.fromARGB(255, 202, 183, 255),
-              //       borderRadius: BorderRadius.circular(10),
-              //       value: category,
-              //       onChanged: (String? newVal) {
-              //         setState(() {
-              //           category = newVal!;
-              //         });
-              //       },
-              //       icon: const Icon(Icons.keyboard_arrow_down_rounded),
-              //       items: productCategories.map((String item) {
-              //         return DropdownMenuItem(
-              //             value: item, child: Text(item));
-              //       }).toList(),
-              //     ),
-              //   ),
-              // ),
-              // SizedBox(height: mq.height * .01),
-              // CustomButton(
-              //   text: "Sell",
-              //   onTap: sellProduct,
-              // ),
             ],
           ),
         ),

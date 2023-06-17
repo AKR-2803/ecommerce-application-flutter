@@ -4,7 +4,6 @@ import 'package:ecommerce_major_project/main.dart';
 import 'package:flutter/material.dart';
 
 import 'package:dialog_flowtter/dialog_flowtter.dart';
-import 'package:flutter_launcher_icons/xml_templates.dart';
 
 import 'message_screen.dart';
 
