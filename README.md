@@ -44,14 +44,14 @@
   - Deal of the Day
   - Cart integration
   - Payment integration with Razorpay API
+  - Chatbot (Customer Support)
   - Order history
   - Track order status
   - Sign out
 - Admin 
-    - View | Add | Delete Products
-    - View | Update order status
-    - View total sales
-    - Graph of sales 
+    - Product Management (View | Add | Delete Products)
+    - Order Management (View | Update Orders)
+    - Sales Analytics (View Total Sales | Sales Graphs)
  
  ## Technologies used
  |**Server**| **Client** | **Database** | **SAAS (media assets)** |  
