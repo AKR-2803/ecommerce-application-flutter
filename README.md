@@ -37,7 +37,7 @@
 
 - User
   - Email and password authentication
-  - Search | Search history
+  - Search | Search history | Search via Audio
   - Filters
   - Categories
   - Rating
